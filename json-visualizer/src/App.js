@@ -1,5 +1,3 @@
-// Install vis-network before using this code: npm install vis-network
-
 import React, { useRef, useEffect } from "react";
 import { Network } from "vis-network";
 import "./App.css";
