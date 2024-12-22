@@ -55,12 +55,12 @@ function JSONVisualizer({ data }) {
       },
       layout: {
         hierarchical: {
-          direction: "UD",
+          direction: "LR",
           sortMethod: "directed",
         },
       },
       interaction: { dragNodes: true },
-      physics: false,
+      physics: true,
     };
 
     const network = new Network(containerRef.current, graphData, options);
