@@ -102,7 +102,7 @@ function App() {
           onChange={(e) => setJsonInput(e.target.value)}
           rows={10}
           cols={50}
-          style={{ marginBottom: "10px" }}
+          style={{ marginBottom: "18px" }}
         />
         <br />
         <button type="submit">Visualize</button>

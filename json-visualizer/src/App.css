@@ -2,6 +2,7 @@
   text-align: center;
   font-family: Arial, sans-serif;
   padding: 20px;
+  color: #265468;
 }
 
 textarea {
@@ -10,7 +11,7 @@ textarea {
   margin-bottom: 10px;
   font-size: 14px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   border-radius: 5px;
 }
 
@@ -20,8 +21,9 @@ button {
   background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 button:hover {
@@ -30,4 +32,6 @@ button:hover {
 
 .visualization-container {
   margin-top: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
 }
