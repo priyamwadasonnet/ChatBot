@@ -14,9 +14,13 @@ function JSONVisualizer({ data }) {
       const edges = [];
 
       let idCounter = 1;
-      const traverse = (node, parentId = null) => {
+
+      const traverse = (node, parentId = null, keyName = null) => {
         const nodeId = idCounter++;
-        nodes.push({ id: nodeId, label: typeof node === "object" ? "Object" : String(node) });
+
+        // Label the node based on its value or the key for the first edge
+        const label = keyName || (typeof node === "object" ? "root" : String(node));
+        nodes.push({ id: nodeId, label });
 
         if (parentId !== null) {
           edges.push({ from: parentId, to: nodeId });
@@ -24,17 +28,15 @@ function JSONVisualizer({ data }) {
 
         if (typeof node === "object" && node !== null) {
           Object.entries(node).forEach(([key, value]) => {
-            const keyId = idCounter++;
-            nodes.push({ id: keyId, label: key });
-            edges.push({ from: nodeId, to: keyId });
-            traverse(value, keyId);
+            traverse(value, nodeId, key); // Pass the key to be used as the label
           });
         }
       };
 
-      traverse(json);
+      traverse(json); // Start traversal with the JSON object
       return { nodes, edges };
     };
+
 
     const graphData = createGraphData(data);
 
