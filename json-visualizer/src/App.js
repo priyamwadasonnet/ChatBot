@@ -18,8 +18,14 @@ function JSONVisualizer({ data }) {
       const traverse = (node, parentId = null, keyName = null) => {
         const nodeId = idCounter++;
 
-        // Label the node based on its value or the key for the first edge
-        const label = keyName || (typeof node === "object" ? "root" : String(node));
+        // Determine label: include key and value for primitives or key for objects
+        let label;
+        if (keyName !== null) {
+          label = typeof node === "object" ? keyName : `${keyName}: ${node}`;
+        } else {
+          label = typeof node === "object" ? "root" : String(node);
+        }
+
         nodes.push({ id: nodeId, label });
 
         if (parentId !== null) {
@@ -36,6 +42,7 @@ function JSONVisualizer({ data }) {
       traverse(json); // Start traversal with the JSON object
       return { nodes, edges };
     };
+
 
 
     const graphData = createGraphData(data);
