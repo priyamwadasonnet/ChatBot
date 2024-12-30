@@ -118,6 +118,13 @@ function App() {
       <div className="visualizer-container">
         {jsonData && <JSONVisualizer data={jsonData} />}
       </div>
+      <div class="navbar">
+        <p>Created by- Akash Jaiswal And Priyamwada Sonnet</p>
+        <a href="https://www.linkedin.com/in/akash-jaiswal-219421187/">Akash Jaiswal</a>
+        <a href="https://www.linkedin.com/in/priyamwada-sonnet/">Priyamwada Sonnet</a>
+
+      </div>
+
     </div>
   );
 }
